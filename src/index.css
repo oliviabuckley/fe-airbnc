@@ -183,3 +183,6 @@ h1 {
   border-style: groove;
   margin-top: 15px;
 }
+.property-card-link {
+  text-decoration: none;
+}

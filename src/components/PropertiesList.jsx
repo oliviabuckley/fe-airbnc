@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router";
 
 export default function PropertiesList() {
   const [properties, setProperties] = useState([]);
@@ -37,13 +38,19 @@ export default function PropertiesList() {
         </div>
         <div className="properties-grid">
           {properties.map((property) => (
-            <div className="property-card" key={property.property_id}>
-              <p>{property.favourites}💜</p>
-              <h2>🏡</h2>
-              <h3>{property.location}</h3>
-              <h4>{property.property_name}</h4>
-              <h4>£{property.price_per_night} per night</h4>
-            </div>
+            <Link
+              to={`/properties/${property.property_id}`}
+              key={property.property_id}
+              className="property-card-link"
+            >
+              <div className="property-card" key={property.property_id}>
+                <p>{property.favourites}💜</p>
+                <h2>🏡</h2>
+                <h3>📍 {property.location}</h3>
+                <h4>{property.property_name}</h4>
+                <h4>💰 £{property.price_per_night} per night</h4>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
