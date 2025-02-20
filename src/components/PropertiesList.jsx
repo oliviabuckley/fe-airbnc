@@ -5,21 +5,34 @@ export default function PropertiesList() {
   const [properties, setProperties] = useState([]);
   const [sortBy, setSortBy] = useState("");
   const [order, setOrder] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     fetch(`https://be-airbnc.onrender.com/api/properties`)
       .then((res) => res.json())
-      .then((data) => setProperties(data.properties));
+      .then((data) => {
+        setProperties(data.properties);
+        setLoading(false);
+      });
   }, []);
 
   useEffect(() => {
     if (!sortBy || !order) return;
+    setLoading(true);
     fetch(
       `https://be-airbnc.onrender.com/api/properties?sortBy=${sortBy}&order=${order}`
     )
       .then((res) => res.json())
-      .then((data) => setProperties(data.properties));
+      .then((data) => {
+        setProperties(data.properties);
+        setLoading(false);
+      });
   }, [sortBy, order]);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <>

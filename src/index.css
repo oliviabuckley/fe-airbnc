@@ -186,3 +186,7 @@ h1 {
 .property-card-link {
   text-decoration: none;
 }
+.property-details-container h2 {
+  text-align: center;
+  font-size: xx-large;
+}

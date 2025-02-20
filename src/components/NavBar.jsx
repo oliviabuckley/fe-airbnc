@@ -4,7 +4,9 @@ export default function NavBar() {
     <>
       <div className="nav-bar">
         <nav>
-          <Link className="nav-link">Home</Link>
+          <Link to="/" className="nav-link">
+            Home
+          </Link>
           <Link className="nav-link">My Favourites</Link>
           <Link className="nav-link">My Profile</Link>
         </nav>
