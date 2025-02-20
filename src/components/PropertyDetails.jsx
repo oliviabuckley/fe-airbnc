@@ -24,7 +24,7 @@ export default function PropertyDetails() {
   return (
     <div className="property-details-container">
       <h2>🏡</h2>
-      <h3>{property.property_name}</h3>
+      <h3 className="property-title">{property.property_name}</h3>
       <p>📍 {property.location}</p>
       <p>💜 {property.favourites} Favourites</p>
       <p>💰 £{property.price_per_night} per night</p>
@@ -32,9 +32,6 @@ export default function PropertyDetails() {
         <strong>Description:</strong>
       </p>
       <p>{property.description}</p>
-      <p>
-        <strong>Reviews:</strong>
-      </p>
       <PropertyReviews />
     </div>
   );
