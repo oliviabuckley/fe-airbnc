@@ -288,3 +288,88 @@ h1 {
     font-size: 0.95rem;
   }
 }
+.review-form {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.review-form h3 {
+  text-align: center;
+  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.review-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.review-label {
+  font-weight: bold;
+  color: #555;
+  font-size: medium;
+}
+
+.review-form select,
+.review-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid rgba(153, 147, 255, 0.6);
+  border-radius: 5px;
+  font-size: 1rem;
+  background: white;
+  color: #333;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
+.review-form select:hover,
+.review-form textarea:hover {
+  background: rgba(153, 147, 255, 0.1);
+}
+
+.review-form select:focus,
+.review-form textarea:focus {
+  outline: none;
+  border-color: rgba(153, 147, 255, 1);
+  box-shadow: 0 0 6px rgba(153, 147, 255, 0.6);
+}
+
+.review-form button {
+  background: linear-gradient(
+    4deg,
+    rgba(101, 95, 205, 1) 0%,
+    rgba(109, 179, 209, 1) 70%
+  );
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.review-form button:hover {
+  background: linear-gradient(
+    4deg,
+    rgba(133, 127, 235, 1) 0%,
+    rgba(171, 221, 241, 1) 70%
+  );
+}
+
+@media (max-width: 600px) {
+  .review-form {
+    max-width: 90%;
+    padding: 15px;
+  }
+}

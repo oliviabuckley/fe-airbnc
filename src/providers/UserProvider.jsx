@@ -1,7 +1,7 @@
 import { UserContext } from "../contexts/UserContext";
 
 export default function UserProvider({ children }) {
-  const hardcodedUser = {
+  const user = {
     user_id: 2,
     first_name: "Bob",
     surname: "Smith",
@@ -12,9 +12,5 @@ export default function UserProvider({ children }) {
     created_at: "2024-12-13T10:29:41.241Z",
   };
 
-  return (
-    <UserContext.Provider value={hardcodedUser}>
-      {children}
-    </UserContext.Provider>
-  );
+  return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
 }
