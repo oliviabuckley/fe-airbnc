@@ -7,9 +7,20 @@ export default function AddReviewForm({ property_id, onReviewAdded }) {
     comment: "",
   });
   const user = useContext(UserContext);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setErrorMessage("");
+
+    if (newReview.rating === 0) {
+      setErrorMessage("Please select a rating.");
+      return;
+    }
+    if (newReview.comment.trim() === "") {
+      setErrorMessage("Please enter a comment.");
+      return;
+    }
 
     const reviewData = {
       guest_id: user.user_id,
@@ -29,7 +40,14 @@ export default function AddReviewForm({ property_id, onReviewAdded }) {
         body: JSON.stringify(reviewData),
       }
     )
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          if (res.status === 400) {
+            setErrorMessage("You have already reviewed this property.");
+          }
+          return res.json();
+        }
+      })
       .then((data) => {
         onReviewAdded(data);
         setNewReview({ rating: 0, comment: "" });
@@ -39,6 +57,8 @@ export default function AddReviewForm({ property_id, onReviewAdded }) {
   return (
     <div className="review-form">
       <h3>➕ Review</h3>
+
+      {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
       <form onSubmit={handleSubmit}>
         <div>
           <label className="review-label">Rating: </label>

@@ -39,6 +39,16 @@ export default function PropertyReviews() {
       });
   };
 
+  const handleDeleteReview = (review_id) => {
+    fetch(`https://be-airbnc.onrender.com/api/reviews/${review_id}`, {
+      method: "DELETE",
+    }).then(() => {
+      setPropertyReviews(
+        propertyReviews.filter((review) => review.review_id !== review_id)
+      );
+    });
+  };
+
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -63,6 +73,13 @@ export default function PropertyReviews() {
               {propertyReview.guest}
             </p>
             <p>📝 {propertyReview.comment}</p>
+            {propertyReview.guest === `${user.first_name} ${user.surname}` && (
+              <button
+                onClick={() => handleDeleteReview(propertyReview.review_id)}
+              >
+                🗑️ Delete
+              </button>
+            )}
           </div>
         ))
       ) : (
