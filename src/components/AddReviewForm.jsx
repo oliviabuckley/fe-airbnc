@@ -6,7 +6,7 @@ export default function AddReviewForm({ property_id, onReviewAdded }) {
     rating: 0,
     comment: "",
   });
-  const user = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = (e) => {
@@ -27,8 +27,6 @@ export default function AddReviewForm({ property_id, onReviewAdded }) {
       rating: newReview.rating,
       comment: newReview.comment,
     };
-
-    console.log(reviewData);
 
     fetch(
       `https://be-airbnc.onrender.com/api/properties/${property_id}/reviews`,

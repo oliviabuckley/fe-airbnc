@@ -1,16 +1,25 @@
 import { UserContext } from "../contexts/UserContext";
+import { useState, useEffect } from "react";
 
 export default function UserProvider({ children }) {
-  const user = {
-    user_id: 2,
-    first_name: "Bob",
-    surname: "Smith",
-    email: "bob@example.com",
-    phone_number: "+44 7000 222222",
-    role: "guest",
-    avatar: "https://example.com/images/bob.jpg",
-    created_at: "2024-12-13T10:29:41.241Z",
+  const [user, setUser] = useState(null);
+  const fetchUser = async () => {
+    const response = await fetch(`https://be-airbnc.onrender.com/api/users/2`);
+    if (response.ok) {
+      const data = await response.json();
+      setUser(data);
+    }
   };
 
-  return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
+  useEffect(() => {
+    if (!user) {
+      fetchUser();
+    }
+  }, [user]);
+
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
+      {children}
+    </UserContext.Provider>
+  );
 }

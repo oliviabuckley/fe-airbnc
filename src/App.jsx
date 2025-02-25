@@ -5,6 +5,7 @@ import PropertiesList from "./components/PropertiesList";
 import Footer from "./components/Footer";
 import PropertyDetails from "./components/PropertyDetails";
 import UserProvider from "./providers/UserProvider";
+import UserProfile from "./components/UserProfile";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
               path="/properties/:property_id"
               element={<PropertyDetails />}
             ></Route>
+            <Route path="/profile" element={<UserProfile />}></Route>
           </Routes>
           <Footer />
         </UserProvider>

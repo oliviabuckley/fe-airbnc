@@ -8,8 +8,12 @@ export default function PropertyReviews() {
   const [propertyReviews, setPropertyReviews] = useState([]);
   const [averageRating, setAverageRating] = useState(null);
   const [loading, setLoading] = useState(true);
-  const user = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
+  if (!user) {
+    return <p>Loading user data...</p>;
+  }
+  console.log(user.first_name);
   useEffect(() => {
     setLoading(true);
     fetch(
@@ -40,6 +44,7 @@ export default function PropertyReviews() {
   };
 
   const handleDeleteReview = (review_id) => {
+    console.log("Deleting review with ID:", review_id);
     fetch(`https://be-airbnc.onrender.com/api/reviews/${review_id}`, {
       method: "DELETE",
     }).then(() => {
