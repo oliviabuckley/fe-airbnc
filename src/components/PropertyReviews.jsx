@@ -13,7 +13,7 @@ export default function PropertyReviews() {
   if (!user) {
     return <p>Loading user data...</p>;
   }
-  console.log(user.first_name);
+
   useEffect(() => {
     setLoading(true);
     fetch(

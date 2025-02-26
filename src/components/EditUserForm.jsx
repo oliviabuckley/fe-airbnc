@@ -14,12 +14,8 @@ export default function EditUserForm({ handleCancel }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("Form Data Before Submission:", formData);
-
     const { first_name, surname, email, phone, avatar } = formData;
     const updatedData = { first_name, surname, email, phone, avatar };
-
-    console.log("Request Body:", JSON.stringify(updatedData));
 
     try {
       const response = await fetch(
