@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import PropertyDetails from "./components/PropertyDetails";
 import UserProvider from "./providers/UserProvider";
 import UserProfile from "./components/UserProfile";
+import Favourites from "./components/Favourites";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               path="/properties/:property_id"
               element={<PropertyDetails />}
             ></Route>
+            <Route path="/favourites" element={<Favourites />}></Route>
             <Route path="/profile" element={<UserProfile />}></Route>
           </Routes>
           <Footer />
