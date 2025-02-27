@@ -1,10 +1,16 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { UserContext } from "../contexts/UserContext";
 
 export default function EditUserForm({ handleCancel }) {
-  const { user, setUser } = useContext(UserContext);
-  const [formData, setFormData] = useState(user ? { ...user } : {});
+  const { user, updateUser } = useContext(UserContext);
+  const [formData, setFormData] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    if (user) {
+      setFormData({ ...user });
+    }
+  }, [user]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -31,7 +37,7 @@ export default function EditUserForm({ handleCancel }) {
       console.log("Backend Response:", responseData);
 
       if (response.ok) {
-        setUser(responseData);
+        updateUser(responseData);
         alert("Profile updated successfully!");
         handleCancel();
       } else {
@@ -43,6 +49,8 @@ export default function EditUserForm({ handleCancel }) {
       setErrorMessage("Error: " + error.message);
     }
   };
+
+  if (!user) return <p>Loading...</p>;
 
   return (
     <form onSubmit={handleSubmit} className="edit-user-form">

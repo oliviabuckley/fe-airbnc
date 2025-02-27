@@ -1,8 +1,9 @@
 import { useState, useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
 import EditUserForm from "./EditUserForm";
+
 export default function UserProfile() {
-  const { user } = useContext(UserContext);
+  const { user, updateUser } = useContext(UserContext);
   const [isEditing, setIsEditing] = useState(false);
 
   if (!user) return <p>Loading...</p>;
