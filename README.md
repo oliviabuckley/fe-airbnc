@@ -4,7 +4,7 @@ This project is the frontend implementation for Airbnc, a platform similar to Ai
 
 ## Deployment
 
-This project is hosted and you can view the live app here: `TBC`.
+This project is hosted and you can view the live app here: `https://airbnc-frontend.netlify.app`.
 
 ## Features
 
@@ -22,9 +22,21 @@ This project is hosted and you can view the live app here: `TBC`.
   - **Add Property to Favourites**: Save properties for easy access later.
   - **Remove Property from Favourites**: Remove properties from the favourites list.
 
-## Project Setup
+## Project setup
 
-TBC
+- Run `npm install` to install the necessary dependencies.
+
+- Create a `.env` file with the following content:
+
+```
+REACT_APP_API_URL=https://be-airbnc.onrender.com
+```
+
+- Run `npm run dev` to run the development server.
+
+- Run `npm run build` to build for production.
+
+- Run `npm run preview` to preview the production build.
 
 ## Technologies Used
 
