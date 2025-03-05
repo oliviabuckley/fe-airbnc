@@ -38,6 +38,7 @@ h1 {
   padding-left: 10px;
   padding-right: 0;
   border-bottom: 0.5px solid #ccc;
+  flex-wrap: wrap;
 }
 
 .nav-links {
@@ -86,6 +87,14 @@ h1 {
   border: 2px solid #ddd;
   transition: transform 0.2s ease-in-out;
   margin-right: 20px;
+}
+.toggle-button {
+  margin-right: 20px;
+  background: linear-gradient(
+    4deg,
+    rgba(101, 95, 205, 1) 0%,
+    rgba(109, 179, 209, 1) 70%
+  );
 }
 .property-details-container .img {
   width: 35px;
@@ -653,14 +662,7 @@ button:hover {
   background-color: rgba(255, 99, 99, 1);
   transform: scale(1.05);
 }
-.toggle-button {
-  margin-right: 20px;
-  background: linear-gradient(
-    4deg,
-    rgba(101, 95, 205, 1) 0%,
-    rgba(109, 179, 209, 1) 70%
-  );
-}
+
 .host-properties {
   font-size: 1.5rem;
   color: #444;
